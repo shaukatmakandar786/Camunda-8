@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0iruhio" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.5.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <bpmn:process id="RestAPIExampleProcess001" name="Rest API Example" isExecutable="true">
+    <bpmn:startEvent id="ProcessStartedStartEvent" name="process started">
+      <bpmn:outgoing>Flow_0phj8gt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0phj8gt" sourceRef="ProcessStartedStartEvent" targetRef="API1Task" />
+    <bpmn:serviceTask id="API1Task" name="API1">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="API1" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0phj8gt</bpmn:incoming>
+      <bpmn:outgoing>Flow_15v4m32</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_15v4m32" sourceRef="API1Task" targetRef="API2Task" />
+    <bpmn:serviceTask id="API2Task" name="API2">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="API2" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15v4m32</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bjgtxu</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1bjgtxu" sourceRef="API2Task" targetRef="API3Task" />
+    <bpmn:sequenceFlow id="Flow_16yomy1" sourceRef="API3Task" targetRef="FinalTask" />
+    <bpmn:endEvent id="ProcessEndedEndEvent" name="process ended">
+      <bpmn:incoming>Flow_1owh9em</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1owh9em" sourceRef="FinalTask" targetRef="ProcessEndedEndEvent" />
+    <bpmn:serviceTask id="API3Task" name="API3">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="API3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1bjgtxu</bpmn:incoming>
+      <bpmn:outgoing>Flow_16yomy1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="FinalTask" name="final">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="final" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_16yomy1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1owh9em</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RestAPIExampleProcess001">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="ProcessStartedStartEvent">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="142" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19ewyvg_di" bpmnElement="API1Task">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1h8vmox_di" bpmnElement="API2Task">
+        <dc:Bounds x="436" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1c2ojbq_di" bpmnElement="ProcessEndedEndEvent">
+        <dc:Bounds x="972" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="954" y="142" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ei8f6o_di" bpmnElement="API3Task">
+        <dc:Bounds x="610" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13hf7n5_di" bpmnElement="FinalTask">
+        <dc:Bounds x="790" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0phj8gt_di" bpmnElement="Flow_0phj8gt">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15v4m32_di" bpmnElement="Flow_15v4m32">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="436" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bjgtxu_di" bpmnElement="Flow_1bjgtxu">
+        <di:waypoint x="536" y="117" />
+        <di:waypoint x="610" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16yomy1_di" bpmnElement="Flow_16yomy1">
+        <di:waypoint x="710" y="117" />
+        <di:waypoint x="790" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1owh9em_di" bpmnElement="Flow_1owh9em">
+        <di:waypoint x="890" y="117" />
+        <di:waypoint x="972" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
