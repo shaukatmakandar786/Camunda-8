@@ -7,3 +7,8 @@ A business process is a set of activities that help a business reach a specific 
 ## What is Camunda: 
 
 Camunda is an open-source platform that uses a workflow engine and decision engine to automate business processes. Organizations can use it to automate workflow and decision processes, freeing up time for employees to focus on more thoughtful projects.
+
+## How many ways to distribute camunda setup:
+
+1. Camunda shared process engine distribution with Embeded tomcate
+2. Using spring boot
