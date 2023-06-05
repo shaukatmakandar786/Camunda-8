@@ -4,6 +4,10 @@ Business process management (BPM) is the practice of modeling, analyzing, and op
 
 A business process is a set of activities that help a business reach a specific goal. Using BPM, you can evaluate your existing processes to find ways to improve efficiency, reduce costs and errors, and support digital transformation efforts.  
 
+## what is BPMN:  
+
+Business Process Modeling Notation (BPMN), also called Business Process Model and Notation, is an open standard to diagram a business process. It is like a flowchart and uses standardized graphics to represent the participants, choices and flow of the process.
+
 ## What is Camunda: 
 
 Camunda is an open-source platform that uses a workflow engine and decision engine to automate business processes. Organizations can use it to automate workflow and decision processes, freeing up time for employees to focus on more thoughtful projects.
