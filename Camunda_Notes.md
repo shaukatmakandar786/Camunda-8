@@ -50,5 +50,18 @@ a gateway is a graphical element that represents a decision point or branching i
 5. An exclusive gateway can also be used to join multiple incoming flows together and improve the readability of the BPMN
 6. A joining gateway doesn't merge the incoming concurrent flows like a parallel gateway.
 
+#### Parallel Getway:
 
+1. A parallel gateway (or AND-gateway) allows you to split the flow into concurrent paths.
+2. When a parallel gateway with multiple outgoing sequence flows is entered, all flows are taken. The paths are executed concurrently and independently.
+3. The concurrent paths can be joined using a parallel gateway with multiple incoming sequence flows. The process instance waits at the parallel gateway until each incoming sequence is taken.
+
+#### Inclusive Getway:
+   
+    Note : Currently, Camunda Platform 8 only supports the diverging (i.e. splitting, forking) inclusive gateway. It does not yet support the converging (i.e. merging, joining) inclusive gateway. A combination of parallel and exclusive gateways can be used as an alternative way to merge the flows.
+    
+1. If an inclusive gateway has multiple outgoing sequence flows, all sequence flows must have a condition to define when the flow is taken. If the inclusive gateway only has one outgoing sequence flow, then it does not need to have a condition.
+2. Optionally, one of the sequence flows can be marked as the default flow. This sequence flow should not have a condition, because its behavior depends on the other conditions.
+3. When an inclusive gateway is entered, the conditions are evaluated. The process instance takes all sequence flows where the condition is fulfilled.    
+4. If no condition is fulfilled, it takes the default flow of the gateway. Note that the default flow is not expected to have a condition, and is therefore not evaluated. If no condition is fulfilled and the gateway has no default flow, an incident is created.
 
