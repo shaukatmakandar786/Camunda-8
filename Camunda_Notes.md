@@ -30,3 +30,17 @@ Camunda is an open-source platform that uses a workflow engine and decision engi
 9. Artifacts
 10. Data Object
 11. Data Group
+
+## Getway:
+
+a gateway is a graphical element that represents a decision point or branching in a business process. It allows you to define the flow of the process based on certain conditions or criteria.
+
+### Types of Getways:
+1. Exclusive gateways
+2. Parellel gateways
+3. Inclusive gateways
+4. Event-based gateways
+
+#### Exclusive Getway:
+
+
