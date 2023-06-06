@@ -43,4 +43,12 @@ a gateway is a graphical element that represents a decision point or branching i
 
 #### Exclusive Getway:
 
+1. An exclusive gateway (or XOR-gateway) allows you to make a decision based on condition.  
+2.If an exclusive gateway has multiple outgoing sequence flows, all sequence flows except one must have a conditionExpression to define when the flow is taken. The gateway can have one sequence flow without conditionExpression, which must be defined as the default flow.  
+3. When an exclusive gateway is entered, the conditionExpression is evaluated. The process instance takes the first sequence flow where the condition is fulfilled.  
+4. If no condition is fulfilled, it takes the default flow of the gateway. If the gateway has no default flow.  
+5. An exclusive gateway can also be used to join multiple incoming flows together and improve the readability of the BPMN
+6. A joining gateway doesn't merge the incoming concurrent flows like a parallel gateway.
+
+
 
