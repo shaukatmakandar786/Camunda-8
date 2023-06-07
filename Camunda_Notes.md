@@ -104,3 +104,7 @@ a gateway is a graphical element that represents a decision point or branching i
 * Timer
 * Message
 * Error
+
+3. An event subprocess behaves like a boundary event, but is inside the scope instead of attached to the scope. Like a boundary event, the event subprocess can be interrupting or non-interrupting (indicated in BPMN by a solid or dashed border of the start event). The start event of the event subprocess can be triggered when its containing scope is activated.
+
+4. A non-interrupting event subprocess can be triggered multiple times. An interrupting event subprocess can be triggered only once.
