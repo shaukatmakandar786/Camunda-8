@@ -65,3 +65,8 @@ a gateway is a graphical element that represents a decision point or branching i
 3. When an inclusive gateway is entered, the conditions are evaluated. The process instance takes all sequence flows where the condition is fulfilled.    
 4. If no condition is fulfilled, it takes the default flow of the gateway. Note that the default flow is not expected to have a condition, and is therefore not evaluated. If no condition is fulfilled and the gateway has no default flow, an incident is created.
 
+### Event-based gateway:
+
+1. An event-based gateway allows you to make a decision based on events.
+2. An event-based gateway must have at least two outgoing sequence flows. Each sequence flow must to be connected to an intermediate catch event of type timer or message.
+3. When an event-based gateway is entered, the process instance waits at the gateway until one of the events is triggered. When the first event is triggered, the outgoing sequence flow of this event is taken. No other events of the gateway can be triggered afterward.
