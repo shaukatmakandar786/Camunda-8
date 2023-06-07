@@ -96,4 +96,11 @@ a gateway is a graphical element that represents a decision point or branching i
 2. When a call activity is entered, a new process instance of the referenced process is created. The new process instance is activated at the none start event. The process can have start events of other types, but they are ignored.
 3. When the created process instance is completed, the call activity is left and the outgoing sequence flow is taken.
 
+#### Event subprocess:
 
+1. An event subprocess is a subprocess triggered by an event. This can be added globally to the process, or locally inside an embedded subprocess.
+2. An event subprocess must have exactly one start event of one of the following types:
+
+* Timer
+* Message
+* Error
