@@ -70,3 +70,30 @@ a gateway is a graphical element that represents a decision point or branching i
 1. An event-based gateway allows you to make a decision based on events.
 2. An event-based gateway must have at least two outgoing sequence flows. Each sequence flow must to be connected to an intermediate catch event of type timer or message.
 3. When an event-based gateway is entered, the process instance waits at the gateway until one of the events is triggered. When the first event is triggered, the outgoing sequence flow of this event is taken. No other events of the gateway can be triggered afterward.
+
+## Sub-process
+
+1. A subprocess in Camunda allows modeling based on reusability and grouping.
+2. A subprocess is an activity that contains other activities, gateways, events, etc., which itself forms a process that is part of a bigger process.
+
+### Types of Sub-process:
+
+1. Embedded Subprocess
+2. Call activities
+3. Event subprocess
+
+#### Embedded Subprocess:
+
+1. A subprocess is completely defined inside a parent process (that’s why it’s often called an embedded Subprocess).
+2. An embedded subprocess allows you to group elements of the process.
+3. An embedded subprocess must have exactly one none start event. Other start events are not allowed.
+4. When an embedded subprocess is entered, the start event is activated. The subprocess stays active as long as one containing element is active. When the last element is completed, the subprocess is completed and the outgoing sequence flow is taken.
+5. Embedded subprocesses are often used together with boundary events. One or more boundary events can be attached to a subprocess. When an interrupting boundary event is triggered, the entire subprocess (including all active elements) is terminated.
+
+#### Call activities:
+
+1. A call activity (or reusable subprocess) allows you to call and invoke another process as part of this process. It's similar to an embedded subprocess, but the process is externalized (i.e. stored as separated BPMN) and can be invoked by different processes.
+2. When a call activity is entered, a new process instance of the referenced process is created. The new process instance is activated at the none start event. The process can have start events of other types, but they are ignored.
+3. When the created process instance is completed, the call activity is left and the outgoing sequence flow is taken.
+
+
