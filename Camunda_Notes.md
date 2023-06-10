@@ -108,3 +108,18 @@ a gateway is a graphical element that represents a decision point or branching i
 3. An event subprocess behaves like a boundary event, but is inside the scope instead of attached to the scope. Like a boundary event, the event subprocess can be interrupting or non-interrupting (indicated in BPMN by a solid or dashed border of the start event). The start event of the event subprocess can be triggered when its containing scope is activated.
 
 4. A non-interrupting event subprocess can be triggered multiple times. An interrupting event subprocess can be triggered only once.
+
+
+## Differences between camunda 7 and Camunda 8:
+
+1. Camunda 7 based on activity engin & Camunda 8 based on zeebe engin which is self developed and zeebe scalable horizontally and linearly because of elastic search based back-end intead of dbms
+
+2. Camunda 7 has shared engin, embeded engin, remote engine where as Camunda 8 has only remote engine.
+
+3. Task processing in camunda 8 is asynchronous whereas in camunda 7 it can be synchronus.
+
+4. Camunda 7 uses REST API to talk to the engine whereas in camunda 8 uses GRPC protocol based getway to talk to the engine.
+
+5. camunda 7 engine wokrs on pushing whereas camunda 8 engine wokrs on polling.
+
+7. camunda 7 does not offering software as a service (SAAS), where as camunda 8 offering SAAS.
