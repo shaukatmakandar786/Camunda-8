@@ -124,11 +124,11 @@ a gateway is a graphical element that represents a decision point or branching i
 
 7. camunda 7 does not offering software as a service (SAAS), where as camunda 8 offering SAAS.
 
-## Zeebe :
+# Zeebe :
 
 Zeebe is the process automation engine powering Camunda Platform 8.
 
-#### With Zeebe you can:
+## With Zeebe you can:
 
 1. Define processes graphically in BPMN 2.0.
 2. Choose any gRPC-supported programming language to implement your workers.
@@ -163,4 +163,32 @@ Clients libraries are you embed in an application (e.g. a microservice that exec
 
 Clients connect to the Zeebe gateway via gRPC, which uses HTTP/2-based transport.  
 
+### Gateways:
 
+A gateway serves as a single entry point to a Zeebe cluster and forwards requests to brokers.  
+
+The gateway is stateless and sessionless, and gateways can be added as necessary for load balancing and high availability.  
+
+
+### Brokers:
+
+The Zeebe broker is the distributed workflow engine that tracks the state of active process instances.  
+
+Brokers can be partitioned for horizontal scalability and replicated for fault tolerance. A Zeebe deployment often consists of more than one broker.  
+
+It's important to note that no application business logic lives in the broker. Its only responsibilities are:  
+
+      Processing commands sent by clients
+      Storing and managing the state of active process instances
+      Assigning jobs to job workers
+      
+      
+### Exporters:
+
+The exporter system provides an event stream of state changes within Zeebe. This data has many potential uses, including but not limited to:  
+
+      Monitoring the current state of running process instances
+      Analysis of historic process data for auditing, business intelligence, etc.
+      Tracking incidents created by Zeebe
+      
+The exporter includes an API you can use to stream data into a storage system of your choice. Zeebe includes an out-of-the-box Elasticsearch exporter, and other community-contributed exporters are also available.      
