@@ -123,3 +123,26 @@ a gateway is a graphical element that represents a decision point or branching i
 5. camunda 7 engine wokrs on pushing whereas camunda 8 engine wokrs on polling.
 
 7. camunda 7 does not offering software as a service (SAAS), where as camunda 8 offering SAAS.
+
+## Zeebe :
+
+There are four main components in Zeebe's architecture: clients, gateways, brokers, and exporters.
+
+![zeebe image](https://docs.camunda.io/assets/images/zeebe-architecture-409312dc13312932224304aad8815be0.png)
+
+### Clients :
+
+Clients send commands to Zeebe to:
+
+1. Deploy processes
+2. Carry out business logic
+
+         Start process instances
+         Publish messages
+         Activate jobs
+         Complete jobs
+         Fail jobs
+3. Handle operational issues
+          
+        Update process instance variables
+        Resolve incidents
