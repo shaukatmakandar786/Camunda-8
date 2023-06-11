@@ -126,6 +126,16 @@ a gateway is a graphical element that represents a decision point or branching i
 
 ## Zeebe :
 
+Zeebe is the process automation engine powering Camunda Platform 8.
+
+#### With Zeebe you can:
+
+1. Define processes graphically in BPMN 2.0.
+2. Choose any gRPC-supported programming language to implement your workers.
+3. Use as part of a software as a service (SaaS) offering with Camunda Platform 8 or deploy with Docker and Kubernetes (in the cloud or on-premises) with Camunda Platform 8 Self-Managed.
+4. Scale horizontally to handle very high throughput.
+5. Export processes data for monitoring and analysis (currently only available through the Elasticsearch exporter added in Camunda Platform 8 Self-Managed).
+
 There are four main components in Zeebe's architecture: clients, gateways, brokers, and exporters.
 
 ![zeebe image](https://docs.camunda.io/assets/images/zeebe-architecture-409312dc13312932224304aad8815be0.png)
@@ -146,3 +156,11 @@ Clients send commands to Zeebe to:
           
         Update process instance variables
         Resolve incidents
+        
+Client applications can be scaled up and down separately from Zeebe. The Zeebe brokers do not execute any business logic.  
+
+Clients libraries are you embed in an application (e.g. a microservice that executes your business logic) to connect to a Zeebe cluster.  
+
+Clients connect to the Zeebe gateway via gRPC, which uses HTTP/2-based transport.  
+
+
